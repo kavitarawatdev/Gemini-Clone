@@ -1,0 +1,308 @@
+/* importing google fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+*{
+    margin: 0%;
+    padding: 0%;
+    font-family: "Poppins", sans-serif;
+}
+
+/* setting all colors (for dark mode) */
+:root{
+    --main-color: #1C1C1C;
+    --secondary-color: #262626;
+    --text-color: #E3E3E3;
+    --subheading-white: #828282;
+    --hover-color: #444;
+    --blue : #4285f4;
+    --red: #d96570;
+    --placehoder-color: #A6A6A6;
+}
+/* setting all colors (for dark mode) */
+.light-mode {
+    --main-color: #FFF;
+    --secondary-color: #E9EEF6;
+    --text-color: #222;
+    --subheading-white: #A0A0A0;
+    --hover-color: #DBE1EA;
+    --blue : #4285f4;
+    --red: #d96570;
+    --placehoder-color: #6C6C6C;
+}
+body{
+    background: var(--main-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+body > header , div {
+    color: var(--text-color);
+}
+header{
+    width: 70%;
+}
+header, .chat-content-area, .user-input-area {
+    margin-left: 6rem;
+}
+li{
+    list-style: none;
+}
+i, span{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem;
+    border-radius: 50%;
+}
+/* styling for greeting */
+/* styling for main heading */
+
+header > h2 {
+    background: linear-gradient(to right, var(--blue), var(--red)) ;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    width: fit-content;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+/* styling for subheading */
+header > h4 {
+    margin-top: 0.5rem;
+    color: var(--subheading-white);
+    font-size: 2.1rem;
+}
+
+/* styling suggestion list  */
+.suggestion-list {
+    margin-top: 2rem;;
+    display: flex;
+    gap:2rem;
+    overflow-x: auto;
+    scrollbar-color: var(--blue) var(--main-color);
+}
+
+
+.suggestion-list > li{
+    background: var(--secondary-color);
+    border-radius: 1rem;
+    padding: 1.3rem;
+    width: 230px;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-shrink: 0;
+    cursor: pointer;
+}
+.suggestion-list > li > i {
+    font-size: 1.3rem;
+}
+
+.user-input-area{
+    position: fixed;
+    top: 77%;
+    width: 80%;
+    margin-top: 2rem;
+}
+
+.user-input {
+    background-color: var(--secondary-color);
+    height: 56px;
+    width: 80%;
+    border-radius: 2rem;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.user-input > input {
+    width: 80%;
+    margin: 0rem 3rem;
+}
+.user-input > input , button {
+    background-color: transparent;
+    color: var(--text-color);
+    outline: none;
+    border: none;
+    font-size: 1rem;
+}
+.user-input >  button{
+    margin: 0rem 1rem;
+}
+.user-input-area > p {
+    margin: 0.5rem ;
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+/* chatting area */
+.chat-content-area {
+    width: 70%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin-top: 2rem;
+    height: 60vh;
+    scrollbar-color: var(--red) var(--main-color);
+}
+
+.chat-content-area , .user-query-container, .response-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.chat-content-area > div {
+    padding: 0.2rem;
+    margin-bottom: 0.4rem;
+    cursor: pointer;
+    width: 90%;
+}
+.message-container  {
+    width: 100%;
+}
+.profile-picture, .message-content{
+    padding: 0.2rem;
+    margin-bottom: 0.2rem;
+    width: 100%;
+}
+.message-content, .loading-indicator{
+    margin-left: 1rem;
+}
+
+.profile-picture, .profile-picture  > img{
+    height: 2.1rem;
+}
+
+/* loading-indicator */
+.loading-indicator{
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    width: 100%;
+}
+.loading-bar{
+    height: 3vh;
+    width: 80%;
+    background: linear-gradient(to right, var(--blue),var(--hover-color), var(--blue));
+    border-radius: 1rem;
+    animation: name duration timing-function delay iteration-count direction fill-mode;
+    animation: loadingAnimation 4s linear 0s infinite normal;
+}
+.loading-bar:first-child{
+    width: 90%;
+}
+.loading-bar:last-child{
+    width: 70%;
+}
+
+.loading-message .profile-picture > img {
+    animation: rotateAvatar 3s linear infinite;
+}
+
+
+/* animation for rotating avatar of loading meassages */
+@keyframes rotateAvatar {
+    100%{
+        transform: rotate(360deg);
+    }
+}
+/* aniamtion for loading bars */
+@keyframes loadingAnimation{
+    0%{
+        background-position: -1000px 0px;
+    }
+    100%{
+        background-position: 1000px 0px;
+    }
+}
+
+/* styling for menu bar */
+.menu-bar{
+    width: 16%;
+    height: 100vh;
+    display: flex;
+    background: var(--secondary-color);
+    position: absolute;
+    top:0%;
+    left: -7%;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.menu-button, .menu-list {
+    align-self: flex-end;
+    display: flex;
+    height: fit-content;
+    justify-content: flex-end;
+    width: 100%;
+}
+.menu-button >i{
+    font-size: 2rem;
+    margin: 1rem 1rem;
+}
+#close-icon {
+    display: none;
+}
+.menu-list {
+    align-self: flex-end;
+}
+.menu-list > ul > li {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 16vw;
+    margin: 2rem 0rem; 
+}
+.menu-list > ul > li > h4{
+    margin: auto;
+    text-align: left;
+    visibility: hidden;
+}
+.menu-list > ul > li > i ,  .theme > li > i {
+    font-size: 1.7rem;
+    margin: 0rem 0.5rem;
+}
+.theme{
+    position: absolute;
+    left: 90%;
+    border-radius: 1rem;
+    align-items: center;
+    display: none;
+    background: var(--secondary-color);
+    box-shadow: 0px 0px 1px 3px var(--main-color);
+}
+.theme > li {
+    display:flex;
+    align-items: center;
+}
+.theme > li > h5{
+    width: 5rem;
+}
+.fa-toggle-on{
+    color: var(--blue);
+}
+
+/* hover effect */
+i:hover {
+    background: var(--hover-color);
+}
+span:hover{
+    background: var(--hover-color);
+}
+.suggestion-list > li:hover{
+    background: var(--hover-color);
+}
+
+@media screen and (max-width: 640px) {
+    header > h2{
+        font-size: 2rem;
+    }
+    .subheading{
+        font-size: 1.6rem;
+    }
+    
+}
