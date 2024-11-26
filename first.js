@@ -139,7 +139,7 @@ const gettingGeminiResponse = async(container, loading_indicator)=> {
             geminiReply.innerText += " " + words[i] ;
             i++;
         }    
-        
+        // scrollToBottom();
     }, 50);
     // removing loading bar
     stopLoading(container, loading_indicator);
